@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
 
@@ -15,8 +15,8 @@ const hallsDetailsSchema = new schema(
       type: String,
       require: true,
     },
-    OxweContact: {
-      type: Number,
+    OwnerContact: {
+      type: String,
       required: true,
     },
     OwnerEmail: {
@@ -40,6 +40,10 @@ const hallsDetailsSchema = new schema(
     EventPlanner: {
       type: String,
     },
+    areaId: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -47,7 +51,7 @@ const hallsDetailsSchema = new schema(
 );
 
 const hallsDetailsSchemadb = mongoose.model(
-  "hallsDetailsSchemadb",
+  'hallsDetailsSchemadb',
   hallsDetailsSchema
 );
 module.exports = hallsDetailsSchemadb;

@@ -1,11 +1,15 @@
-const express = require("express");
+const express = require('express');
 const Router = express.Router();
-const Controller = require("../controller/areaController");
-Router.get("/", (req, res) => res.send("hello"));
+const AreaController = require('../controller/areaController');
+Router.get('/', (req, res) => res.send('hello'));
+const HallsController = require('../Controller/hallsDetail');
 
-Router.post("/api/area/createArea", Controller.addAreas);
-Router.get("/api/getAreas", Controller.getAreas);
-// Router.put("/api/user/update/:id", Controller.updateuser);
-// Router.delete("/api/user/delete/:id", Controller.deleteuser);
+// Area ALL Api
+Router.post('/api/area/createArea', AreaController.addAreas);
+Router.get('/api/getAreas', AreaController.getAreas);
+
+// HALLS Details Api
+
+Router.post('/api/halls/createHalls', HallsController.createHalls);
 
 module.exports = Router;
