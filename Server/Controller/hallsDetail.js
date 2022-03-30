@@ -11,7 +11,7 @@ exports.createHalls = (req, res) => {
     images: req.body.images,
     OwnerName: req.body.OwnerName,
     hallName: req.body.hallName,
-    OxweContact: req.body.OxweContact,
+    OwnerContact: req.body.OwnerContact,
     OwnerEmail: req.body.OwnerEmail,
     HallAddress: req.body.HallAddress,
     HallCapacity: req.body.HallCapacity,

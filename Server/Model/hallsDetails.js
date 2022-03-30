@@ -38,7 +38,7 @@ const hallsDetailsSchema = new schema(
       type: Number,
     },
     EventPlanner: {
-      type: String,
+      type: Boolean,
     },
     areaId: {
       type: String,
