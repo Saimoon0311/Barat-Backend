@@ -41,3 +41,15 @@ exports.getHalls = (req, res) => {
       res.status(400).send({ error: err });
     });
 };
+
+// Get All Halls Data
+
+exports.getAllHalls = (req, res) => {
+  Hallsdb.find()
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((err) => {
+      res.status(400).send({ error: err });
+    });
+};

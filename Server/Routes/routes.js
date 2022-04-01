@@ -12,5 +12,6 @@ Router.get('/api/getAreas', AreaController.getAreas);
 
 Router.post('/api/halls/createHalls', HallsController.createHalls);
 Router.get('/api/getHalls/:areaId', HallsController.getHalls);
+Router.get('/api/getAllHalls', HallsController.getAllHalls);
 
 module.exports = Router;
