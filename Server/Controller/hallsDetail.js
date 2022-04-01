@@ -29,3 +29,15 @@ exports.createHalls = (req, res) => {
       res.status(400).send({ data: err });
     });
 };
+
+// Get halls accourding to Area_ID
+
+exports.getHalls = (req, res) => {
+  Hallsdb.find({ areaId: req.params.areaId })
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((err) => {
+      res.status(400).send({ error: err });
+    });
+};
