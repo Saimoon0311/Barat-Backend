@@ -18,5 +18,6 @@ Router.get('/api/getAllHalls', HallsController.getAllHalls);
 // Hall Booking details
 
 Router.post('/api/hallOrder/bookHalls', HallOrderController.bookHall);
+Router.get('/api/getOrder/:userId', HallOrderController.getOrderDetails);
 
 module.exports = Router;

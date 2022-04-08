@@ -8,7 +8,7 @@ exports.bookHall = (req, res) => {
     return;
   }
   const hallBooking = new hallBookDetailsdb({
-    Data: req.body.Data,
+    Date: req.body.Date,
     Time: req.body.Time,
     GuestsQuantity: req.body.GuestsQuantity,
     EventPlaner: req.body.EventPlaner,
@@ -23,5 +23,18 @@ exports.bookHall = (req, res) => {
     })
     .catch((err) => {
       res.status(400).send({ data: err });
+    });
+};
+
+//  Get booking details
+
+exports.getOrderDetails = (req, res) => {
+  hallBookDetailsdb
+    .find({ userId: req.params.userId })
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((err) => {
+      res.status(400).send({ error: err });
     });
 };
