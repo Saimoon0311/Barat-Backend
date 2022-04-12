@@ -25,5 +25,6 @@ Router.get('/api/getOrder/:userId', HallOrderController.getOrderDetails);
 // User all api
 
 Router.post('/api/user/Register', userController.UserSignUp);
+Router.post('/api/user/login', userController.LoginUser);
 
 module.exports = Router;
