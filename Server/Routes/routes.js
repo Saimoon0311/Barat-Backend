@@ -1,9 +1,11 @@
 const express = require('express');
 const Router = express.Router();
 const AreaController = require('../controller/areaController');
-Router.get('/', (req, res) => res.send('hello'));
 const HallsController = require('../Controller/hallsDetail');
 const HallOrderController = require('../Controller/hallBokkingContoller');
+const userController = require('../Controller/userController');
+
+Router.get('/', (req, res) => res.send('hello'));
 
 // Area ALL Api
 Router.post('/api/area/createArea', AreaController.addAreas);
@@ -19,5 +21,9 @@ Router.get('/api/getAllHalls', HallsController.getAllHalls);
 
 Router.post('/api/hallOrder/bookHalls', HallOrderController.bookHall);
 Router.get('/api/getOrder/:userId', HallOrderController.getOrderDetails);
+
+// User all api
+
+Router.post('/api/user/Register', userController.UserSignUp);
 
 module.exports = Router;
