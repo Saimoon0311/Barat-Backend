@@ -26,6 +26,10 @@ const userSchema = new schema(
       required: true,
       minlength: 6,
     },
+    userRoll: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,

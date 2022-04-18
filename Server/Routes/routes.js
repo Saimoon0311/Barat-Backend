@@ -26,5 +26,6 @@ Router.get('/api/getOrder/:userId', HallOrderController.getOrderDetails);
 
 Router.post('/api/user/Register', userController.UserSignUp);
 Router.post('/api/user/login', userController.LoginUser);
+Router.get('/api/user/GetHallOwner/:userRoll', userController.getHallOwner);
 
 module.exports = Router;

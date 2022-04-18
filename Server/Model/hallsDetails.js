@@ -44,6 +44,10 @@ const hallsDetailsSchema = new schema(
       type: String,
       required: true,
     },
+    hallOwnerId: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

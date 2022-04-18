@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const userdb = require('../Model/UserModal');
 
+// Register User
+
 exports.UserSignUp = async (req, res) => {
   if (!req.body) {
     res.status(400).send({ data: 'Please Complete All Information' });
@@ -15,6 +17,7 @@ exports.UserSignUp = async (req, res) => {
     password: hashedPassword,
     UserEmail: req.body.UserEmail,
     phoneNumber: req.body.phoneNumber,
+    userRoll: req.body.userRoll,
   });
   CreateUser.save(CreateUser)
     .then((data) => {
@@ -24,6 +27,9 @@ exports.UserSignUp = async (req, res) => {
       res.status(400).send({ data: err });
     });
 };
+
+// Login User
+
 exports.LoginUser = async (req, res) => {
   try {
     const user = await userdb.findOne({ UserName: req.body.UserName });
@@ -42,5 +48,34 @@ exports.LoginUser = async (req, res) => {
     res.status(200).send({ data: user });
   } catch (err) {
     res.status(400).send({ data: err });
+  }
+};
+
+//  Get Hall Owner Details
+
+exports.getHallOwner = async (req, res) => {
+  const userRoll = req.params.userRoll;
+  if (userRoll == '2') {
+    userdb
+      .find({ userRoll: userRoll })
+      .then((data) => {
+        if (!data) {
+          res.status(200).send({ data: data });
+        } else {
+          res.status(200).send({ data: 'Hall Owner Not found' });
+        }
+      })
+      .catch((err) => {
+        res.status(400).send({ data: err });
+      });
+  } else {
+    userdb
+      .find()
+      .then((data) => {
+        res.status(200).send({ data: data });
+      })
+      .catch((err) => {
+        res.status(400).send({ data: err });
+      });
   }
 };

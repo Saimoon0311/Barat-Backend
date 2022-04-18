@@ -19,6 +19,7 @@ exports.createHalls = (req, res) => {
     CateringPerHead: req.body.CateringPerHead,
     EventPlanner: req.body.EventPlanner,
     areaId: req.body.areaId,
+    hallOwnerId: req.body.hallOwnerId,
   });
   halls
     .save(halls)

@@ -15,6 +15,7 @@ exports.bookHall = (req, res) => {
     CateringServices: req.body.CateringServices,
     TotalPaynment: req.body.TotalPaynment,
     userId: req.body.userId,
+    hallOwnerId: req.body.hallOwnerId,
   });
   hallBooking
     .save(hallBooking)
