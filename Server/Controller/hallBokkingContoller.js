@@ -39,3 +39,16 @@ exports.getOrderDetails = (req, res) => {
       res.status(400).send({ error: err });
     });
 };
+
+// Get Booked Halls
+
+exports.getBookedHalls = (req, res) => {
+  hallBookDetailsdb
+    .find({ hallOwnerId: req.params.hallOwnerId })
+    .then((data) => {
+      res.status(200).send({ data: data });
+    })
+    .catch((err) => {
+      res.status(400).send({ error: err });
+    });
+};

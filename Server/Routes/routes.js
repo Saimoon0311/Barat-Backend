@@ -21,6 +21,7 @@ Router.get('/api/getAllHalls', HallsController.getAllHalls);
 
 Router.post('/api/hallOrder/bookHalls', HallOrderController.bookHall);
 Router.get('/api/getOrder/:userId', HallOrderController.getOrderDetails);
+Router.get('/api/getOrder/:hallOwnerId', HallOrderController.getBookedHalls);
 
 // User all api
 
