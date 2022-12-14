@@ -28,5 +28,7 @@ Router.get('/api/getOrder/:hallOwnerId', HallOrderController.getBookedHalls);
 Router.post('/api/user/Register', userController.UserSignUp);
 Router.post('/api/user/login', userController.LoginUser);
 Router.get('/api/user/GetHallOwner/:userRoll', userController.getHallOwner);
+Router.post('/api/user/StripePayIntent', userController.StripePayIntent);
+Router.get('/api/user/SocketIo', userController.SocketIo);
 
 module.exports = Router;

@@ -1,6 +1,13 @@
 const bcrypt = require('bcrypt');
 const userdb = require('../Model/UserModal');
-
+const express = require('express');
+const app = express();
+const SECRET_KEY =
+  'sk_test_51LI9HwEE1bl5YY9CFNAbViwRWdJffMxWTiwbkGsqxToWS27sYHwGxopht0RmYTVF3gSe19k10qEYBuKr2ZNRwUWT00IUl0ZBqo';
+// 'sk_test_51JzIR5EyPVCLsOYzX6JdaoGzwDsLLuUuzVqfZGATJEz1pppFLebzrmcEyvPK1BWPZO6L3g9KVlNobhZD2w93lFLz00Q6xtyEJ1';
+const Stripe = require('stripe');
+//Confirm the API version from your stripe dashboard
+const stripe = Stripe(SECRET_KEY, { apiVersion: '2020-08-27' });
 // Register User
 
 exports.UserSignUp = async (req, res) => {
@@ -79,3 +86,14 @@ exports.getHallOwner = async (req, res) => {
       });
   }
 };
+
+exports.StripePayIntent = async (req, res) => {
+  const paynmentIntent = await stripe.paymentIntents.create({
+    amount: req.body.amount,
+    currency: 'usd',
+    payment_method_types: ['card'],
+  });
+  res.json(paynmentIntent);
+};
+
+exports.SocketIo = async (req, res) => {};
